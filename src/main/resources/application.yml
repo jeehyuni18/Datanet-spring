@@ -1,0 +1,13 @@
+spring:
+  application.name: datanet-spring
+  datasource:
+    url: jdbc:mariadb://ec2-3-35-26-220.ap-northeast-2.compute.amazonaws.com:3306/datanet
+    username: admin
+    password: test1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
