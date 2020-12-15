@@ -1,15 +1,11 @@
-package com.example.datanetspring.persistence.entity;
+package com.example.datanetspring.controller.dto;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
-
-@Entity
 @Getter
 @Setter
-public class Node {
-
-    @Id
+public class NodeDTO {
     String kedcd;
     String companyName;
     String ir;
@@ -31,6 +27,3 @@ public class Node {
     String formEstablishment;
     Integer employee;
 }
-
-
-
