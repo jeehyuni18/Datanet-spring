@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/kang")
@@ -16,7 +18,7 @@ public class MainController {
     private final NodeService nodeService;
 
     @GetMapping
-    ResponseEntity<NodeDTO> getData() {
-        return new ResponseEntity(nodeService.getNodeList(), HttpStatus.OK);
+    ResponseEntity<List<NodeDTO>> getData() {
+        return new ResponseEntity<>(nodeService.getNodeList(), HttpStatus.OK);
     }
 }

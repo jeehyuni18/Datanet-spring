@@ -30,6 +30,9 @@ public class Node {
     String formEnterprise;
     String formEstablishment;
     Integer employee;
+    @OneToOne
+    @JoinColumn(name = "kedcd")
+    Finance finance;
 }
 
 
