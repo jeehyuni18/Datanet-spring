@@ -17,8 +17,18 @@ import java.util.List;
 public class MainController {
     private final NodeService nodeService;
 
-    @GetMapping
+    @GetMapping(value = "/node")
     ResponseEntity<List<NodeDTO>> getData() {
         return new ResponseEntity<>(nodeService.getNodeList(), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/finance")
+    ResponseEntity<List<NodeDTO>> getFinance() {
+        return new ResponseEntity<>(nodeService.getFinanceList(), HttpStatus.OK);
+    }
+
+//    @GetMapping(value = "/link")
+//    ResponseEntity<List<NodeDTO>> getFinance() {
+//        return new ResponseEntity<>(nodeService.getLinkList(), HttpStatus.OK);
+//    }
 }

@@ -19,4 +19,9 @@ public class NodeService {
         List<Node> nodeList = nodeRepository.getNodeList();
         return nodeMapper.entityToDto(nodeList);
     }
+
+    public List<NodeDTO> getFinanceList() {
+        List<Node> nodeList = nodeRepository.getNodeList();
+        return nodeMapper.entityToDto(nodeList);
+    }
 }
