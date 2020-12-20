@@ -4,9 +4,13 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Link{
     @Id
-    @Column(nullable = false, columnDefinition = "varchar(100)")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+    @Column(nullable = false, columnDefinition = "varchar(255)")
     String standardKedcd;
 
     @Column(nullable = false, columnDefinition = "varchar(100)")

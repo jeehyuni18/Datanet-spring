@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface NodeRepositoryCustom {
     List<Node> getNodeList();
+    List<Node> getNodeListById(String[] idList);
     List<Finance> getFinanceList();
-    List<Link> getLinkList();
+    List<Link> getLinkList(String[] kedcdList);
 }

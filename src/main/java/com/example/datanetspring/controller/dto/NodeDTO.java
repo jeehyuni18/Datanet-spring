@@ -1,7 +1,10 @@
 package com.example.datanetspring.controller.dto;
 
+import com.example.datanetspring.persistence.entity.Link;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter

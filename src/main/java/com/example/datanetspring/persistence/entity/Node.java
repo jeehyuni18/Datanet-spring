@@ -3,6 +3,7 @@ package com.example.datanetspring.persistence.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter

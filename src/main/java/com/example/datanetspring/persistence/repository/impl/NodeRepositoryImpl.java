@@ -2,6 +2,7 @@ package com.example.datanetspring.persistence.repository.impl;
 
 import com.example.datanetspring.persistence.entity.*;
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.example.datanetspring.persistence.repository.custom.NodeRepositoryCustom;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,24 @@ public class NodeRepositoryImpl implements NodeRepositoryCustom {
     public List<Node> getNodeList() {
         QNode node = QNode.node;
         BooleanBuilder builder = new BooleanBuilder();
-        return queryFactory.selectFrom(node).where(builder).limit(1000).fetch();
+        return queryFactory.select(node)
+                .from(node)
+                .where(builder)
+                .limit(1000)
+                .fetch();
+    }
+
+    @Override
+    public List<Node> getNodeListById(String[] idList) {
+        QNode node = QNode.node;
+        BooleanBuilder builder = new BooleanBuilder();
+        try {
+            Integer.parseInt(idList[0]);
+            builder.and(node.kedcd.in(idList));
+        } catch (Exception e) {
+            builder.and(node.companyName.in(idList));
+        }
+        return queryFactory.selectFrom(node).where(builder).fetch();
     }
 
     @Override
@@ -27,9 +45,10 @@ public class NodeRepositoryImpl implements NodeRepositoryCustom {
     }
 
     @Override
-    public List<Link> getLinkList() {
+    public List<Link> getLinkList(String[] kedcdList) {
         QLink link = QLink.link;
         BooleanBuilder builder = new BooleanBuilder();
-        return queryFactory.selectFrom(link).where(builder).fetch();
+        builder.and(link.standardKedcd.in(kedcdList));
+        return queryFactory.selectFrom(link).where(builder).distinct().fetch();
     }
 }
