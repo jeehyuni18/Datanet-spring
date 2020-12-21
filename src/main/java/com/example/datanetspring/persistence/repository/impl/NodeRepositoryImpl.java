@@ -17,11 +17,11 @@ public class NodeRepositoryImpl implements NodeRepositoryCustom {
     public List<Node> getNodeList() {
         QNode node = QNode.node;
         BooleanBuilder builder = new BooleanBuilder();
-        return queryFactory.select(node)
+        return queryFactory.select(node)  //select * from node -----
                 .from(node)
                 .where(builder)
                 .limit(1000)
-                .fetch();
+                .fetch();     //쿼리를  만들어줌
     }
 
     @Override
